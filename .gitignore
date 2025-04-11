@@ -1,0 +1,17 @@
+# Compiled Lua sources
+luac.out
+
+# Plugin directories
+plugin/packer_compiled.lua
+lazy-lock.json
+
+# Logs and temporary files
+*.log
+*~
+.DS_Store
+
+# Local history
+.history/
+
+# Plugin cache
+.cache/
