@@ -25,6 +25,5 @@ vim.opt.relativenumber = true
 require("plugins")
 require("config.lsp")
 require("config.cmp")
-require("config.dap.keymaps")
-require("config.dap.python")
 require("config.format")
+require("config.dap")  -- auto-loads all DAP configs
