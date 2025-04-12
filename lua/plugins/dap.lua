@@ -28,7 +28,9 @@ return {
         -- Virtual text for debugging
         {
           "theHamsta/nvim-dap-virtual-text",
-          opts = {},
+          config = function()
+            require("nvim-dap-virtual-text").setup()
+          end,
         },
       },
     },
@@ -38,11 +40,17 @@ return {
       "jay-babu/mason-nvim-dap.nvim",
       dependencies = { "williamboman/mason.nvim" },
       config = function()
+        -- Mason-managed DAP adapter installation
         require("mason-nvim-dap").setup({
-          ensure_installed = { "python" },
+          ensure_installed = { "python", "node2" },
           automatic_setup = true,
-          handlers = {},  -- ✅ Use this instead of calling .setup_handlers()
+          handlers = {},  
         })
+
+        -- Load custom adapter configurations
+        require("config.dap.node")
+        require("config.dap.typescript")
+        require("config.dap.python")
       end,
     },
   }
